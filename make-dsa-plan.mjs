@@ -212,6 +212,10 @@ function difficultyClass(difficulty) {
   return 'hard';
 }
 
+function codewarsSearchUrl(problemTitle) {
+  return `https://www.codewars.com/kata/search/?q=${encodeURIComponent(problemTitle)}`;
+}
+
 function getPatternResources(title) {
   const entry = patternResources[title] ?? {
     youtube: 'https://www.youtube.com/watch?v=DjYZk8nrXVY',
@@ -227,15 +231,19 @@ function getPatternResources(title) {
 
 function renderProblemCard(problem, number) {
   const difficulty = difficultyClass(problem.difficulty);
+  const codewarsUrl = codewarsSearchUrl(problem.title);
   return `
-    <a class="problem-card" href="${escapeHtml(problem.url)}" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#${String(number).padStart(3, '0')}</span>
         <span class="difficulty ${difficulty}">${escapeHtml(problem.difficulty)}</span>
       </div>
       <div class="problem-title">${escapeHtml(problem.title)}</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="${escapeHtml(problem.url)}" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="${escapeHtml(codewarsUrl)}" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   `;
 }
 
@@ -694,7 +702,6 @@ async function main() {
 
     .problem-card {
       display: block;
-      text-decoration: none;
       color: inherit;
       border-radius: 18px;
       border: 1px solid rgba(76, 121, 255, 0.14);
@@ -735,9 +742,41 @@ async function main() {
       margin-bottom: 16px;
     }
 
-    .problem-footer {
-      color: var(--muted);
+    .problem-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .problem-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 10px;
+      border-radius: 10px;
       font-size: 0.84rem;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .problem-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .problem-link.leetcode {
+      color: #ffffff;
+      background: linear-gradient(135deg, #111827, #374151);
+      box-shadow: 0 8px 22px rgba(17, 24, 39, 0.12);
+    }
+
+    .problem-link.codewars {
+      color: #ffffff;
+      background: linear-gradient(135deg, #dc2626, #f97316);
+      box-shadow: 0 8px 22px rgba(220, 38, 38, 0.14);
     }
 
     .difficulty {
@@ -836,16 +875,16 @@ async function main() {
   <main class="shell">
     <section class="hero">
       <span class="eyebrow">DSA roadmap for a React / React Native developer</span>
-      <h1>8 weeks, 240 attempts, 150 core LeetCode problems</h1>
+      <h1>8 weeks, 240 attempts, 150 core DSA prompts</h1>
       <p class="hero-copy">
         This plan is built from the NeetCode 150 pattern order and tuned for someone with real shipping experience.
         The unique set gives you the core patterns; the review slots push the total attempt count into your 200-300 goal.
-        The links point to the canonical LeetCode problems so you can move fast and stay organized.
+        Each problem card gives you the exact LeetCode source plus a Codewars search for a matching kata on your preferred platform.
       </p>
       <div class="hero-grid">
         <div class="metric">
           <strong>${totalUnique}</strong>
-          <span>unique LeetCode problems in the core set</span>
+          <span>pattern prompts with LeetCode and Codewars links</span>
         </div>
         <div class="metric">
           <strong>${totalAttempts}</strong>
@@ -903,7 +942,7 @@ async function main() {
     <section class="section">
       <h2>Pattern library</h2>
       <p class="lead">
-        These are the core problems you should solve in pattern order. Use the sections as your checklist and the review slots above to repeat the hardest misses.
+        These are the core prompts you should solve in pattern order. Use the sections as your checklist and the review slots above to repeat the hardest misses.
       </p>
       ${patternSections}
     </section>
@@ -914,10 +953,10 @@ async function main() {
         <a href="https://neetcode.io/practice/practice/neetcode150" target="_blank" rel="noreferrer">NeetCode 150 practice page</a>
         and the
         <a href="https://gist.github.com/mayiwrite/c77a64f52a634c860732e96e5d8ca7e9" target="_blank" rel="noreferrer">NeetCode 150 markdown list</a>.
-        All problem links in this page point to LeetCode.
+        The original source list is LeetCode-based. Each problem card includes both the exact LeetCode link and a Codewars search link for a matching kata.
       </p>
       <p>
-        If you want a companion version, I can also turn this into a Codewars-first tracker by pattern after you try the LeetCode core set.
+        Codewars does not always have exact one-to-one copies of LeetCode problems, so use the nearest matching kata when the exact title is unavailable.
       </p>
     </section>
   </main>

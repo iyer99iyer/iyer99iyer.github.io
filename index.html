@@ -364,7 +364,6 @@
 
     .problem-card {
       display: block;
-      text-decoration: none;
       color: inherit;
       border-radius: 18px;
       border: 1px solid rgba(76, 121, 255, 0.14);
@@ -405,9 +404,41 @@
       margin-bottom: 16px;
     }
 
-    .problem-footer {
-      color: var(--muted);
+    .problem-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .problem-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 10px;
+      border-radius: 10px;
       font-size: 0.84rem;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .problem-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .problem-link.leetcode {
+      color: #ffffff;
+      background: linear-gradient(135deg, #111827, #374151);
+      box-shadow: 0 8px 22px rgba(17, 24, 39, 0.12);
+    }
+
+    .problem-link.codewars {
+      color: #ffffff;
+      background: linear-gradient(135deg, #dc2626, #f97316);
+      box-shadow: 0 8px 22px rgba(220, 38, 38, 0.14);
     }
 
     .difficulty {
@@ -506,16 +537,16 @@
   <main class="shell">
     <section class="hero">
       <span class="eyebrow">DSA roadmap for a React / React Native developer</span>
-      <h1>8 weeks, 240 attempts, 150 core LeetCode problems</h1>
+      <h1>8 weeks, 240 attempts, 150 core DSA prompts</h1>
       <p class="hero-copy">
         This plan is built from the NeetCode 150 pattern order and tuned for someone with real shipping experience.
         The unique set gives you the core patterns; the review slots push the total attempt count into your 200-300 goal.
-        The links point to the canonical LeetCode problems so you can move fast and stay organized.
+        Each problem card gives you the exact LeetCode source plus a Codewars search for a matching kata on your preferred platform.
       </p>
       <div class="hero-grid">
         <div class="metric">
           <strong>150</strong>
-          <span>unique LeetCode problems in the core set</span>
+          <span>pattern prompts with LeetCode and Codewars links</span>
         </div>
         <div class="metric">
           <strong>240</strong>
@@ -653,7 +684,7 @@
     <section class="section">
       <h2>Pattern library</h2>
       <p class="lead">
-        These are the core problems you should solve in pattern order. Use the sections as your checklist and the review slots above to repeat the hardest misses.
+        These are the core prompts you should solve in pattern order. Use the sections as your checklist and the review slots above to repeat the hardest misses.
       </p>
       
     <details class="pattern-card" open>
@@ -683,86 +714,113 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/contains-duplicate" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#001</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Contains Duplicate</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/contains-duplicate" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Contains%20Duplicate" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/valid-anagram" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#002</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Valid Anagram</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/valid-anagram" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Valid%20Anagram" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/two-sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#003</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Two Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/two-sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Two%20Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/group-anagrams" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#004</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Group Anagrams</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/group-anagrams" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Group%20Anagrams" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/top-k-frequent-elements" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#005</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Top K Frequent Elements</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/top-k-frequent-elements" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Top%20K%20Frequent%20Elements" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/encode-and-decode-strings" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#006</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Encode and Decode Strings</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/encode-and-decode-strings" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Encode%20and%20Decode%20Strings" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/product-of-array-except-self" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#007</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Product of Array Except Self</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/product-of-array-except-self" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Product%20of%20Array%20Except%20Self" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/valid-sudoku" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#008</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Valid Sudoku</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/valid-sudoku" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Valid%20Sudoku" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-consecutive-sequence" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#009</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Consecutive Sequence</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-consecutive-sequence" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Consecutive%20Sequence" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -794,50 +852,65 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/valid-palindrome" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#010</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Valid Palindrome</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/valid-palindrome" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Valid%20Palindrome" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#011</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Two Sum II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Two%20Sum%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/3sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#012</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">3Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/3sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=3Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/container-with-most-water" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#013</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Container With Most Water</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/container-with-most-water" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Container%20With%20Most%20Water" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/trapping-rain-water" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#014</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Trapping Rain Water</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/trapping-rain-water" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Trapping%20Rain%20Water" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -869,59 +942,77 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#015</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Best Time to Buy and Sell Stock</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Best%20Time%20to%20Buy%20and%20Sell%20Stock" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-substring-without-repeating-characters" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#016</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Substring Without Repeating Characters</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-substring-without-repeating-characters" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Substring%20Without%20Repeating%20Characters" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-repeating-character-replacement" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#017</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Repeating Character Replacement</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-repeating-character-replacement" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Repeating%20Character%20Replacement" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/permutation-in-string" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#018</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Permutation in String</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/permutation-in-string" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Permutation%20in%20String" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/minimum-window-substring" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#019</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Minimum Window Substring</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/minimum-window-substring" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Minimum%20Window%20Substring" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/sliding-window-maximum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#020</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Sliding Window Maximum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/sliding-window-maximum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Sliding%20Window%20Maximum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -953,68 +1044,89 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/valid-parentheses" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#021</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Valid Parentheses</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/valid-parentheses" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Valid%20Parentheses" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/min-stack" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#022</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Min Stack</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/min-stack" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Min%20Stack" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/evaluate-reverse-polish-notation" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#023</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Evaluate Reverse Polish Notation</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/evaluate-reverse-polish-notation" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Evaluate%20Reverse%20Polish%20Notation" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/generate-parentheses" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#024</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Generate Parentheses</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/generate-parentheses" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Generate%20Parentheses" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/daily-temperatures" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#025</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Daily Temperatures</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/daily-temperatures" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Daily%20Temperatures" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/car-fleet" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#026</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Car Fleet</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/car-fleet" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Car%20Fleet" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/largest-rectangle-in-histogram" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#027</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Largest Rectangle in Histogram</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/largest-rectangle-in-histogram" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Largest%20Rectangle%20in%20Histogram" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1046,68 +1158,89 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/binary-search" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#028</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Binary Search</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/binary-search" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Binary%20Search" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/search-a-2d-matrix" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#029</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Search a 2D Matrix</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/search-a-2d-matrix" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Search%20a%202D%20Matrix" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/koko-eating-bananas" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#030</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Koko Eating Bananas</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/koko-eating-bananas" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Koko%20Eating%20Bananas" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#031</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Find Minimum in Rotated Sorted Array</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Find%20Minimum%20in%20Rotated%20Sorted%20Array" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#032</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Search in Rotated Sorted Array</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Search%20in%20Rotated%20Sorted%20Array" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/time-based-key-value-store" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#033</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Time Based Key-Value Store</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/time-based-key-value-store" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Time%20Based%20Key-Value%20Store" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/median-of-two-sorted-arrays" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#034</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Median of Two Sorted Arrays</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/median-of-two-sorted-arrays" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Median%20of%20Two%20Sorted%20Arrays" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1139,104 +1272,137 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#035</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Reverse Linked List</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reverse%20Linked%20List" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#036</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Merge Two Sorted Lists</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Merge%20Two%20Sorted%20Lists" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#037</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Linked List Cycle</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Linked%20List%20Cycle" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/reorder-list" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#038</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Reorder List</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reorder-list" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reorder%20List" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#039</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Remove Nth Node From End of List</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Remove%20Nth%20Node%20From%20End%20of%20List" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/copy-list-with-random-pointer" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#040</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Copy List with Random Pointer</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/copy-list-with-random-pointer" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Copy%20List%20with%20Random%20Pointer" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#041</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Add Two Numbers</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Add%20Two%20Numbers" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/find-the-duplicate-number" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#042</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Find the Duplicate Number</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/find-the-duplicate-number" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Find%20the%20Duplicate%20Number" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/lru-cache" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#043</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">LRU Cache</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/lru-cache" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=LRU%20Cache" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/merge-k-sorted-lists" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#044</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Merge k Sorted Lists</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/merge-k-sorted-lists" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Merge%20k%20Sorted%20Lists" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/reverse-nodes-in-k-group" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#045</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Reverse Nodes in k-Group</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reverse-nodes-in-k-group" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reverse%20Nodes%20in%20k-Group" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1268,140 +1434,185 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/invert-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#046</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Invert Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/invert-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Invert%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/maximum-depth-of-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#047</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Maximum Depth of Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/maximum-depth-of-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Maximum%20Depth%20of%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/diameter-of-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#048</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Diameter of Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/diameter-of-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Diameter%20of%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/balanced-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#049</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Balanced Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/balanced-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Balanced%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/same-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#050</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Same Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/same-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Same%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/subtree-of-another-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#051</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Subtree of Another Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/subtree-of-another-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Subtree%20of%20Another%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#052</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Lowest Common Ancestor of a BST</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Lowest%20Common%20Ancestor%20of%20a%20BST" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#053</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Binary Tree Level Order Traversal</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Binary%20Tree%20Level%20Order%20Traversal" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-right-side-view" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#054</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Binary Tree Right Side View</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/binary-tree-right-side-view" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Binary%20Tree%20Right%20Side%20View" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/count-good-nodes-in-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#055</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Count Good Nodes in Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/count-good-nodes-in-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Count%20Good%20Nodes%20in%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/validate-binary-search-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#056</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Validate Binary Search Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/validate-binary-search-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Validate%20Binary%20Search%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/kth-smallest-element-in-a-bst" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#057</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Kth Smallest Element in a BST</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/kth-smallest-element-in-a-bst" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Kth%20Smallest%20Element%20in%20a%20BST" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#058</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Construct Binary Tree from Preorder and Inorder Traversal</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-maximum-path-sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#059</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Binary Tree Maximum Path Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/binary-tree-maximum-path-sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Binary%20Tree%20Maximum%20Path%20Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#060</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Serialize and Deserialize Binary Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Serialize%20and%20Deserialize%20Binary%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1433,68 +1644,89 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/kth-largest-element-in-a-stream" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#061</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Kth Largest Element in a Stream</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/kth-largest-element-in-a-stream" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Kth%20Largest%20Element%20in%20a%20Stream" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/last-stone-weight" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#062</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Last Stone Weight</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/last-stone-weight" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Last%20Stone%20Weight" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/k-closest-points-to-origin" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#063</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">K Closest Points to Origin</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/k-closest-points-to-origin" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=K%20Closest%20Points%20to%20Origin" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/kth-largest-element-in-an-array" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#064</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Kth Largest Element in an Array</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/kth-largest-element-in-an-array" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Kth%20Largest%20Element%20in%20an%20Array" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/task-scheduler" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#065</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Task Scheduler</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/task-scheduler" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Task%20Scheduler" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/design-twitter" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#066</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Design Twitter</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/design-twitter" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Design%20Twitter" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/find-median-from-data-stream" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#067</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Find Median from Data Stream</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/find-median-from-data-stream" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Find%20Median%20from%20Data%20Stream" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1526,86 +1758,113 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/subsets" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#068</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Subsets</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/subsets" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Subsets" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/combination-sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#069</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Combination Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/combination-sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Combination%20Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/combination-sum-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#070</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Combination Sum II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/combination-sum-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Combination%20Sum%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/permutations" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#071</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Permutations</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/permutations" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Permutations" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/subsets-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#072</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Subsets II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/subsets-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Subsets%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/word-search" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#073</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Word Search</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/word-search" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Word%20Search" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/palindrome-partitioning" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#074</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Palindrome Partitioning</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/palindrome-partitioning" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Palindrome%20Partitioning" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#075</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Letter Combinations of a Phone Number</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Letter%20Combinations%20of%20a%20Phone%20Number" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/n-queens" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#076</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">N-Queens</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/n-queens" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=N-Queens" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1637,32 +1896,41 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/implement-trie-prefix-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#077</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Implement Trie</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/implement-trie-prefix-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Implement%20Trie" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/design-add-and-search-words-data-structure" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#078</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Design Add and Search Words Data Structure</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/design-add-and-search-words-data-structure" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Design%20Add%20and%20Search%20Words%20Data%20Structure" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/word-search-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#079</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Word Search II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/word-search-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Word%20Search%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1694,122 +1962,161 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/number-of-islands" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#080</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Number of Islands</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/number-of-islands" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Number%20of%20Islands" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/max-area-of-island" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#081</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Max Area of Island</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/max-area-of-island" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Max%20Area%20of%20Island" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/clone-graph" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#082</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Clone Graph</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/clone-graph" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Clone%20Graph" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/walls-and-gates" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#083</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Walls and Gates</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/walls-and-gates" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Walls%20and%20Gates" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/rotting-oranges" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#084</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Rotting Oranges</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/rotting-oranges" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Rotting%20Oranges" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/pacific-atlantic-water-flow" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#085</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Pacific Atlantic Water Flow</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/pacific-atlantic-water-flow" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Pacific%20Atlantic%20Water%20Flow" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/surrounded-regions" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#086</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Surrounded Regions</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/surrounded-regions" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Surrounded%20Regions" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/course-schedule" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#087</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Course Schedule</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/course-schedule" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Course%20Schedule" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/course-schedule-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#088</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Course Schedule II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/course-schedule-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Course%20Schedule%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/graph-valid-tree" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#089</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Graph Valid Tree</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/graph-valid-tree" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Graph%20Valid%20Tree" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#090</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Number of Connected Components in an Undirected Graph</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/redundant-connection" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#091</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Redundant Connection</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/redundant-connection" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Redundant%20Connection" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/word-ladder" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#092</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Word Ladder</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/word-ladder" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Word%20Ladder" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1841,59 +2148,77 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/network-delay-time" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#093</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Network Delay Time</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/network-delay-time" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Network%20Delay%20Time" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/reconstruct-itinerary" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#094</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Reconstruct Itinerary</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reconstruct-itinerary" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reconstruct%20Itinerary" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/min-cost-to-connect-all-points" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#095</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Min Cost to Connect All Points</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/min-cost-to-connect-all-points" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Min%20Cost%20to%20Connect%20All%20Points" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/swim-in-rising-water" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#096</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Swim in Rising Water</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/swim-in-rising-water" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Swim%20in%20Rising%20Water" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/alien-dictionary" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#097</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Alien Dictionary</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/alien-dictionary" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Alien%20Dictionary" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/cheapest-flights-within-k-stops" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#098</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Cheapest Flights Within K Stops</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/cheapest-flights-within-k-stops" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Cheapest%20Flights%20Within%20K%20Stops" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -1925,113 +2250,149 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/climbing-stairs" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#099</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Climbing Stairs</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/climbing-stairs" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Climbing%20Stairs" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/min-cost-climbing-stairs" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#100</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Min Cost Climbing Stairs</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/min-cost-climbing-stairs" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Min%20Cost%20Climbing%20Stairs" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/house-robber" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#101</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">House Robber</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/house-robber" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=House%20Robber" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/house-robber-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#102</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">House Robber II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/house-robber-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=House%20Robber%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-palindromic-substring" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#103</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Palindromic Substring</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-palindromic-substring" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Palindromic%20Substring" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/palindromic-substrings" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#104</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Palindromic Substrings</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/palindromic-substrings" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Palindromic%20Substrings" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/decode-ways" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#105</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Decode Ways</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/decode-ways" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Decode%20Ways" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/coin-change" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#106</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Coin Change</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/coin-change" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Coin%20Change" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/maximum-product-subarray" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#107</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Maximum Product Subarray</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/maximum-product-subarray" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Maximum%20Product%20Subarray" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/word-break" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#108</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Word Break</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/word-break" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Word%20Break" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-increasing-subsequence" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#109</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Increasing Subsequence</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-increasing-subsequence" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Increasing%20Subsequence" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/partition-equal-subset-sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#110</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Partition Equal Subset Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/partition-equal-subset-sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Partition%20Equal%20Subset%20Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2063,104 +2424,137 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/unique-paths" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#111</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Unique Paths</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/unique-paths" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Unique%20Paths" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-common-subsequence" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#112</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Longest Common Subsequence</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-common-subsequence" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Common%20Subsequence" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#113</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Best Time to Buy and Sell Stock with Cooldown</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/coin-change-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#114</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Coin Change II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/coin-change-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Coin%20Change%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/target-sum" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#115</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Target Sum</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/target-sum" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Target%20Sum" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/interleaving-string" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#116</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Interleaving String</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/interleaving-string" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Interleaving%20String" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#117</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Longest Increasing Path in a Matrix</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Longest%20Increasing%20Path%20in%20a%20Matrix" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/distinct-subsequences" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#118</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Distinct Subsequences</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/distinct-subsequences" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Distinct%20Subsequences" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/edit-distance" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#119</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Edit Distance</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/edit-distance" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Edit%20Distance" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/burst-balloons" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#120</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Burst Balloons</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/burst-balloons" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Burst%20Balloons" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/regular-expression-matching" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#121</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Regular Expression Matching</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/regular-expression-matching" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Regular%20Expression%20Matching" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2192,77 +2586,101 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/maximum-subarray" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#122</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Maximum Subarray</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/maximum-subarray" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Maximum%20Subarray" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/jump-game" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#123</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Jump Game</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/jump-game" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Jump%20Game" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/jump-game-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#124</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Jump Game II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/jump-game-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Jump%20Game%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/gas-station" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#125</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Gas Station</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/gas-station" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Gas%20Station" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/hand-of-straights" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#126</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Hand of Straights</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/hand-of-straights" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Hand%20of%20Straights" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/merge-triplets-to-form-target-triplet" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#127</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Merge Triplets to Form Target Triplet</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/merge-triplets-to-form-target-triplet" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Merge%20Triplets%20to%20Form%20Target%20Triplet" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/partition-labels" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#128</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Partition Labels</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/partition-labels" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Partition%20Labels" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/valid-parenthesis-string" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#129</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Valid Parenthesis String</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/valid-parenthesis-string" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Valid%20Parenthesis%20String" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2294,59 +2712,77 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/insert-interval" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#130</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Insert Interval</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/insert-interval" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Insert%20Interval" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/merge-intervals" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#131</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Merge Intervals</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/merge-intervals" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Merge%20Intervals" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/non-overlapping-intervals" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#132</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Non-Overlapping Intervals</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/non-overlapping-intervals" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Non-Overlapping%20Intervals" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/meeting-rooms" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#133</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Meeting Rooms</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/meeting-rooms" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Meeting%20Rooms" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/meeting-rooms-ii" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#134</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Meeting Rooms II</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/meeting-rooms-ii" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Meeting%20Rooms%20II" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/minimum-interval-to-include-each-query" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#135</span>
         <span class="difficulty hard">Hard</span>
       </div>
       <div class="problem-title">Minimum Interval to Include Each Query</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/minimum-interval-to-include-each-query" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Minimum%20Interval%20to%20Include%20Each%20Query" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2378,77 +2814,101 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/rotate-image" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#136</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Rotate Image</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/rotate-image" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Rotate%20Image" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/spiral-matrix" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#137</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Spiral Matrix</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/spiral-matrix" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Spiral%20Matrix" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/set-matrix-zeroes" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#138</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Set Matrix Zeroes</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/set-matrix-zeroes" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Set%20Matrix%20Zeroes" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/happy-number" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#139</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Happy Number</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/happy-number" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Happy%20Number" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/plus-one" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#140</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Plus One</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/plus-one" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Plus%20One" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/powx-n" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#141</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Pow(x, n)</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/powx-n" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Pow(x%2C%20n)" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/multiply-strings" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#142</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Multiply Strings</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/multiply-strings" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Multiply%20Strings" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/detect-squares" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#143</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Detect Squares</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/detect-squares" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Detect%20Squares" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2480,68 +2940,89 @@
       </div>
       <div class="pattern-grid">
         
-    <a class="problem-card" href="https://leetcode.com/problems/single-number" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#144</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Single Number</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/single-number" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Single%20Number" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/number-of-1-bits" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#145</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Number of 1 Bits</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/number-of-1-bits" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Number%20of%201%20Bits" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/counting-bits" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#146</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Counting Bits</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/counting-bits" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Counting%20Bits" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/reverse-bits" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#147</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Reverse Bits</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reverse-bits" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reverse%20Bits" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/missing-number" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#148</span>
         <span class="difficulty easy">Easy</span>
       </div>
       <div class="problem-title">Missing Number</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/missing-number" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Missing%20Number" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/sum-of-two-integers" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#149</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Sum of Two Integers</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/sum-of-two-integers" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Sum%20of%20Two%20Integers" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
-    <a class="problem-card" href="https://leetcode.com/problems/reverse-integer" target="_blank" rel="noreferrer">
+    <article class="problem-card">
       <div class="problem-topline">
         <span class="problem-number">#150</span>
         <span class="difficulty medium">Medium</span>
       </div>
       <div class="problem-title">Reverse Integer</div>
-      <div class="problem-footer">Open LeetCode problem</div>
-    </a>
+      <div class="problem-actions">
+        <a class="problem-link leetcode" href="https://leetcode.com/problems/reverse-integer" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="problem-link codewars" href="https://www.codewars.com/kata/search/?q=Reverse%20Integer" target="_blank" rel="noreferrer">Codewars</a>
+      </div>
+    </article>
   
       </div>
     </details>
@@ -2554,10 +3035,10 @@
         <a href="https://neetcode.io/practice/practice/neetcode150" target="_blank" rel="noreferrer">NeetCode 150 practice page</a>
         and the
         <a href="https://gist.github.com/mayiwrite/c77a64f52a634c860732e96e5d8ca7e9" target="_blank" rel="noreferrer">NeetCode 150 markdown list</a>.
-        All problem links in this page point to LeetCode.
+        The original source list is LeetCode-based. Each problem card includes both the exact LeetCode link and a Codewars search link for a matching kata.
       </p>
       <p>
-        If you want a companion version, I can also turn this into a Codewars-first tracker by pattern after you try the LeetCode core set.
+        Codewars does not always have exact one-to-one copies of LeetCode problems, so use the nearest matching kata when the exact title is unavailable.
       </p>
     </section>
   </main>
