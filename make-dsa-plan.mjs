@@ -24,75 +24,93 @@ const NEETCODE_GRAPHS_URL =
 
 const patternResources = {
   'Arrays & Hashing': {
-    youtube: 'NeetCode Arrays and Hashing',
+    youtube: 'https://www.youtube.com/watch?v=QphoE-_ApCM',
+    youtubeAlt: 'https://www.youtube.com/watch?v=8FMnYAsU58I',
     reference: { label: 'Written walkthrough', url: NEETCODE_ARRAY_URL },
   },
   'Two Pointers': {
-    youtube: 'NeetCode Two Pointers',
+    youtube: 'https://www.youtube.com/watch?v=QzZ7nmouLTI',
+    youtubeAlt: 'https://www.youtube.com/watch?v=Elnhh8cC2vM',
     reference: { label: 'Written walkthrough', url: NEETCODE_TWO_POINTERS_URL },
   },
   'Sliding Window': {
-    youtube: 'NeetCode Sliding Window',
+    youtube: 'https://www.youtube.com/watch?v=y2d0VHdvfdc',
+    youtubeAlt: 'https://www.youtube.com/watch?v=tk38CTSAYsg',
     reference: { label: 'Written walkthrough', url: NEETCODE_SLIDING_URL },
   },
   Stack: {
-    youtube: 'NeetCode Stack',
+    youtube: 'https://www.youtube.com/watch?v=DtJVwbbicjQ',
+    youtubeAlt: 'https://www.youtube.com/watch?v=LAnEeffb5zI',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   'Binary Search': {
-    youtube: 'NeetCode Binary Search',
+    youtube: 'https://www.youtube.com/watch?v=iuGwaDVSLi4',
+    youtubeAlt: 'https://www.youtube.com/watch?v=_NT69eLpqks',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   'Linked List': {
-    youtube: 'NeetCode Linked List',
+    youtube: 'https://www.youtube.com/watch?v=zzoAbm35jyQ',
+    youtubeAlt: 'https://www.youtube.com/watch?v=G9o6ZI_C5cc',
     reference: { label: 'Written walkthrough', url: NEETCODE_LIST_URL },
   },
   Trees: {
-    youtube: 'NeetCode Trees',
+    youtube: 'https://www.youtube.com/watch?v=xo7XrRVxH8Y',
+    youtubeAlt: 'https://www.youtube.com/watch?v=LAnEeffb5zI',
     reference: { label: 'Written walkthrough', url: NEETCODE_TREES_URL },
   },
   'Heap / Priority Queue': {
-    youtube: 'NeetCode Heap Priority Queue',
+    youtube: 'https://www.youtube.com/watch?v=rI2EBUEMfTk',
+    youtubeAlt: 'https://www.youtube.com/watch?v=6_v6OoxvMOE',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   Backtracking: {
-    youtube: 'NeetCode Backtracking',
+    youtube: 'https://www.youtube.com/watch?v=p9m2LHBW81M',
+    youtubeAlt: 'https://www.youtube.com/watch?v=pfiQ_PS1g8E',
     reference: { label: 'Written walkthrough', url: NEETCODE_BACKTRACKING_URL },
   },
   Tries: {
-    youtube: 'NeetCode Trie',
+    youtube: 'https://www.youtube.com/watch?v=eV47D_mzPws',
+    youtubeAlt: 'https://www.youtube.com/watch?v=8H0Cj3GNniA',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   Graphs: {
-    youtube: 'NeetCode Graphs',
+    youtube: 'https://www.youtube.com/watch?v=utDu3Q7Flrw',
+    youtubeAlt: 'https://www.youtube.com/watch?v=EgI5nU9etnU',
     reference: { label: 'Written walkthrough', url: NEETCODE_GRAPHS_URL },
   },
   'Advanced Graphs': {
-    youtube: 'NeetCode Advanced Graphs',
+    youtube: 'https://www.youtube.com/watch?v=4xMsNIPEkwA',
+    youtubeAlt: 'https://www.youtube.com/watch?v=x6N5FK6ArRk',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   '1-D Dynamic Programming': {
-    youtube: 'NeetCode Dynamic Programming',
+    youtube: 'https://www.youtube.com/watch?v=g5yR_-gWEDI',
+    youtubeAlt: 'https://www.youtube.com/watch?v=x0ez9Fxg8r0',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   '2-D Dynamic Programming': {
-    youtube: 'NeetCode Dynamic Programming',
+    youtube: 'https://www.youtube.com/watch?v=uUjFL0C-vY0',
+    youtubeAlt: 'https://www.youtube.com/watch?v=RdJH2-0V8d8',
     reference: { label: 'Written walkthrough', url: NEETCODE_2D_DP_URL },
   },
   Greedy: {
-    youtube: 'NeetCode Greedy',
+    youtube: 'https://www.youtube.com/watch?v=2Vxl2HMpt2M',
+    youtubeAlt: 'https://www.youtube.com/watch?v=DIX2p7vb9co',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   Intervals: {
-    youtube: 'NeetCode Intervals',
+    youtube: 'https://www.youtube.com/watch?v=rpzaI1EPYSI',
+    youtubeAlt: 'https://www.youtube.com/watch?v=V1CWx1lUhUw',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   'Math & Geometry': {
-    youtube: 'NeetCode Math and Geometry',
+    youtube: 'https://www.youtube.com/watch?v=nKv2LnC_g6E',
+    youtubeAlt: 'https://www.youtube.com/watch?v=0pqPalQbPdc',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
   'Bit Manipulation': {
-    youtube: 'NeetCode Bit Manipulation',
+    youtube: 'https://www.youtube.com/watch?v=qMPX1AOa83k',
+    youtubeAlt: 'https://www.youtube.com/watch?v=5Km3utixwZs',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   },
 };
@@ -194,19 +212,15 @@ function difficultyClass(difficulty) {
   return 'hard';
 }
 
-function youtubeSearchUrl(query) {
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-}
-
 function getPatternResources(title) {
   const entry = patternResources[title] ?? {
-    youtube: `NeetCode ${title}`,
-    youtubeAlt: `${title} interview tutorial`,
+    youtube: 'https://www.youtube.com/watch?v=DjYZk8nrXVY',
+    youtubeAlt: 'https://www.youtube.com/watch?v=LAnEeffb5zI',
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   };
   return {
-    youtube: youtubeSearchUrl(entry.youtube),
-    youtubeAlt: youtubeSearchUrl(entry.youtubeAlt ?? `${title} interview tutorial`),
+    youtube: entry.youtube,
+    youtubeAlt: entry.youtubeAlt,
     reference: entry.reference,
   };
 }
