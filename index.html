@@ -1,0 +1,2436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8-Week DSA Plan for a React Developer</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f8fbff;
+      --panel: rgba(255, 255, 255, 0.9);
+      --panel-strong: rgba(255, 255, 255, 0.98);
+      --line: rgba(76, 121, 255, 0.14);
+      --line-strong: rgba(76, 121, 255, 0.22);
+      --text: #182235;
+      --muted: #5f6f88;
+      --accent: #2563eb;
+      --accent2: #8b5cf6;
+      --accent3: #14b8a6;
+      --accent4: #f97316;
+      --shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      color-scheme: light;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Manrope', 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.11), transparent 26%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.11), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.09), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.08), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 58%, #f5f8ff 100%);
+    }
+
+    .shell {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 255, 0.98));
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -140px -100px auto auto;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 66%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(139, 92, 246, 0.10));
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: 'Space Grotesk', 'Manrope', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy {
+      max-width: 860px;
+      font-size: 1.06rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.96rem;
+    }
+
+    .section {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.65rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section p.lead {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .step-grid,
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 255, 0.96));
+      padding: 18px;
+    }
+
+    .step .num {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(20, 184, 166, 0.18));
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      color: var(--text);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step h3,
+    .week-card h3 {
+      margin: 0 0 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+      font-size: 1.16rem;
+    }
+
+    .step p,
+    .week-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .week-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(250, 251, 255, 0.96));
+      padding: 18px;
+    }
+
+    .week-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .week-label,
+    .week-total,
+    .summary-pill,
+    .difficulty,
+    .chip,
+    .pattern-meta {
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      font-weight: 800;
+    }
+
+    .week-label {
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .week-total {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip,
+    .summary-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.09), rgba(139, 92, 246, 0.09));
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      color: var(--text);
+    }
+
+    .pattern-card {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.96);
+      overflow: hidden;
+    }
+
+    .pattern-card summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: linear-gradient(180deg, rgba(250, 252, 255, 0.98), rgba(243, 247, 255, 0.98));
+      border-bottom: 1px solid rgba(76, 121, 255, 0.10);
+    }
+
+    .pattern-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .pattern-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .pattern-meta {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .pattern-resources {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .resource-kicker {
+      color: var(--accent3);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .resource-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 13px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .resource-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .resource-link.video {
+      color: #fff;
+      background: linear-gradient(135deg, #ff7a18, #ff3d77);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .resource-link.reference {
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(20, 184, 166, 0.10));
+      border-color: rgba(37, 99, 235, 0.14);
+    }
+
+    .problem-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 18px;
+      border: 1px solid rgba(76, 121, 255, 0.14);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 255, 0.96));
+      padding: 14px;
+      min-height: 126px;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+    }
+
+    .problem-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(37, 99, 235, 0.32);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.10);
+    }
+
+    .problem-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .problem-number {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .problem-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .problem-footer {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .difficulty {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      min-width: 72px;
+    }
+
+    .difficulty.easy {
+      background: rgba(20, 184, 166, 0.12);
+      border-color: rgba(20, 184, 166, 0.24);
+      color: #0f8b7d;
+    }
+
+    .difficulty.medium {
+      background: rgba(37, 99, 235, 0.10);
+      border-color: rgba(37, 99, 235, 0.20);
+      color: #1d4ed8;
+    }
+
+    .difficulty.hard {
+      background: rgba(249, 115, 22, 0.12);
+      border-color: rgba(249, 115, 22, 0.22);
+      color: #c2410c;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding: 18px 8px 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .step-grid,
+      .week-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100% - 20px, 1280px);
+        padding-top: 16px;
+      }
+
+      .hero,
+      .section {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .hero-grid,
+      .step-grid,
+      .week-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-card summary,
+      .week-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .pattern-resources {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .week-total {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">DSA roadmap for a React / React Native developer</span>
+      <h1>8 weeks, 240 attempts, 150 core LeetCode problems</h1>
+      <p class="hero-copy">
+        This plan is built from the NeetCode 150 pattern order and tuned for someone with real shipping experience.
+        The unique set gives you the core patterns; the review slots push the total attempt count into your 200-300 goal.
+        The links point to the canonical LeetCode problems so you can move fast and stay organized.
+      </p>
+      <div class="hero-grid">
+        <div class="metric">
+          <strong>150</strong>
+          <span>unique LeetCode problems in the core set</span>
+        </div>
+        <div class="metric">
+          <strong>240</strong>
+          <span>total attempts target across 8 weeks</span>
+        </div>
+        <div class="metric">
+          <strong>90</strong>
+          <span>review / re-solve attempts to lock in patterns</span>
+        </div>
+        <div class="metric">
+          <strong>8</strong>
+          <span>pattern-heavy weeks with a final mixed revision block</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How to use the plan</h2>
+      <p class="lead">
+        Each day, do one focused block of new problems and one smaller block of review. If a problem takes too long,
+        read the hint or solution, then close the page and solve it again from scratch. That second solve is where the pattern starts to stick.
+      </p>
+      <div class="step-grid">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Recognize the pattern first</h3>
+          <p>Before coding, ask whether the problem is really a window, pointer, stack, tree, graph, or DP question.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Limit the first attempt</h3>
+          <p>Give yourself 20 to 30 minutes. If you are stuck, get unstuck quickly, then re-derive the answer yourself.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Re-solve the misses</h3>
+          <p>At the end of the day, re-open one missed question and solve it without looking. This is how speed builds.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Track the takeaway</h3>
+          <p>Write one short note: pattern, invariant, and the key trick. A tiny notebook beats vague memory every time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Weekly cadence</h2>
+      <p class="lead">The weekly attempt budget is fixed at 30 attempts, which is aggressive but realistic for your 2-month target.</p>
+      <div class="week-grid">
+        
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 1</span>
+        <span class="week-total">20 new + 10 review = 30 attempts</span>
+      </div>
+      <h3>Arrays, hashing, pointers</h3>
+      <p>Build your base with frequency maps, pointer movement, and contiguous-window thinking.</p>
+      <div class="chip-row"><span class="chip">Arrays &amp; Hashing</span><span class="chip">Two Pointers</span><span class="chip">Sliding Window</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 2</span>
+        <span class="week-total">25 new + 5 review = 30 attempts</span>
+      </div>
+      <h3>Stacks, search, linked lists</h3>
+      <p>Train your ability to maintain invariants, shrink search space, and manipulate pointers cleanly.</p>
+      <div class="chip-row"><span class="chip">Stack</span><span class="chip">Binary Search</span><span class="chip">Linked List</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 3</span>
+        <span class="week-total">22 new + 8 review = 30 attempts</span>
+      </div>
+      <h3>Trees and heaps</h3>
+      <p>Spend extra time on recursion, tree traversal templates, and priority queue usage.</p>
+      <div class="chip-row"><span class="chip">Trees</span><span class="chip">Heap / Priority Queue</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 4</span>
+        <span class="week-total">12 new + 18 review = 30 attempts</span>
+      </div>
+      <h3>Backtracking and tries</h3>
+      <p>Focus on state-space exploration, pruning, and prefix-tree thinking.</p>
+      <div class="chip-row"><span class="chip">Backtracking</span><span class="chip">Tries</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 5</span>
+        <span class="week-total">19 new + 11 review = 30 attempts</span>
+      </div>
+      <h3>Graphs and advanced graphs</h3>
+      <p>Practice BFS, DFS, topological order, and shortest-path style reasoning.</p>
+      <div class="chip-row"><span class="chip">Graphs</span><span class="chip">Advanced Graphs</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 6</span>
+        <span class="week-total">12 new + 18 review = 30 attempts</span>
+      </div>
+      <h3>1-D dynamic programming</h3>
+      <p>Convert each problem into state, transition, and base-case language.</p>
+      <div class="chip-row"><span class="chip">1-D Dynamic Programming</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 7</span>
+        <span class="week-total">11 new + 19 review = 30 attempts</span>
+      </div>
+      <h3>2-D dynamic programming</h3>
+      <p>Work on table-based thinking, recursion-to-DP conversion, and memoization.</p>
+      <div class="chip-row"><span class="chip">2-D Dynamic Programming</span></div>
+    </article>
+  
+    <article class="week-card">
+      <div class="week-header">
+        <span class="week-label">Week 8</span>
+        <span class="week-total">29 new + 1 review = 30 attempts</span>
+      </div>
+      <h3>Greedy, intervals, math, bits</h3>
+      <p>Finish the unique set and use the remaining time for timed re-solves and weak-topic review.</p>
+      <div class="chip-row"><span class="chip">Greedy</span><span class="chip">Intervals</span><span class="chip">Math &amp; Geometry</span><span class="chip">Bit Manipulation</span></div>
+    </article>
+  
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Pattern library</h2>
+      <p class="lead">
+        These are the core problems you should solve in pattern order. Use the sections as your checklist and the review slots above to repeat the hardest misses.
+      </p>
+      
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Arrays &amp; Hashing</div>
+          <div class="pattern-meta">9 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Arrays%20and%20Hashing" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/array.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/contains-duplicate" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#001</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Contains Duplicate</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/valid-anagram" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#002</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Valid Anagram</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/two-sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#003</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Two Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/group-anagrams" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#004</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Group Anagrams</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/top-k-frequent-elements" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#005</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Top K Frequent Elements</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/encode-and-decode-strings" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#006</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Encode and Decode Strings</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/product-of-array-except-self" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#007</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Product of Array Except Self</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/valid-sudoku" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#008</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Valid Sudoku</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-consecutive-sequence" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#009</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Consecutive Sequence</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Two Pointers</div>
+          <div class="pattern-meta">5 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Two%20Pointers" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/two-pointers.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/valid-palindrome" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#010</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Valid Palindrome</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#011</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Two Sum II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/3sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#012</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">3Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/container-with-most-water" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#013</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Container With Most Water</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/trapping-rain-water" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#014</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Trapping Rain Water</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Sliding Window</div>
+          <div class="pattern-meta">6 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Sliding%20Window" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/sliding-window.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#015</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Best Time to Buy and Sell Stock</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-substring-without-repeating-characters" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#016</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Substring Without Repeating Characters</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-repeating-character-replacement" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#017</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Repeating Character Replacement</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/permutation-in-string" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#018</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Permutation in String</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/minimum-window-substring" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#019</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Minimum Window Substring</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/sliding-window-maximum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#020</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Sliding Window Maximum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Stack</div>
+          <div class="pattern-meta">7 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Stack" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/valid-parentheses" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#021</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Valid Parentheses</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/min-stack" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#022</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Min Stack</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/evaluate-reverse-polish-notation" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#023</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Evaluate Reverse Polish Notation</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/generate-parentheses" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#024</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Generate Parentheses</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/daily-temperatures" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#025</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Daily Temperatures</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/car-fleet" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#026</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Car Fleet</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/largest-rectangle-in-histogram" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#027</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Largest Rectangle in Histogram</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Binary Search</div>
+          <div class="pattern-meta">7 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Binary%20Search" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/binary-search" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#028</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Binary Search</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/search-a-2d-matrix" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#029</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Search a 2D Matrix</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/koko-eating-bananas" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#030</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Koko Eating Bananas</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#031</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Find Minimum in Rotated Sorted Array</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#032</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Search in Rotated Sorted Array</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/time-based-key-value-store" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#033</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Time Based Key-Value Store</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/median-of-two-sorted-arrays" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#034</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Median of Two Sorted Arrays</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Linked List</div>
+          <div class="pattern-meta">11 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Linked%20List" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/list.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#035</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Reverse Linked List</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#036</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Merge Two Sorted Lists</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#037</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Linked List Cycle</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/reorder-list" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#038</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Reorder List</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#039</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Remove Nth Node From End of List</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/copy-list-with-random-pointer" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#040</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Copy List with Random Pointer</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/add-two-numbers" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#041</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Add Two Numbers</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/find-the-duplicate-number" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#042</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Find the Duplicate Number</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/lru-cache" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#043</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">LRU Cache</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/merge-k-sorted-lists" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#044</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Merge k Sorted Lists</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/reverse-nodes-in-k-group" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#045</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Reverse Nodes in k-Group</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Trees</div>
+          <div class="pattern-meta">15 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Trees" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/trees.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/invert-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#046</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Invert Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/maximum-depth-of-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#047</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Maximum Depth of Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/diameter-of-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#048</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Diameter of Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/balanced-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#049</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Balanced Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/same-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#050</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Same Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/subtree-of-another-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#051</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Subtree of Another Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#052</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Lowest Common Ancestor of a BST</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#053</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Binary Tree Level Order Traversal</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-right-side-view" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#054</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Binary Tree Right Side View</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/count-good-nodes-in-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#055</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Count Good Nodes in Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/validate-binary-search-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#056</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Validate Binary Search Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/kth-smallest-element-in-a-bst" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#057</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Kth Smallest Element in a BST</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#058</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Construct Binary Tree from Preorder and Inorder Traversal</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/binary-tree-maximum-path-sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#059</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Binary Tree Maximum Path Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#060</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Serialize and Deserialize Binary Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Heap / Priority Queue</div>
+          <div class="pattern-meta">7 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Heap%20Priority%20Queue" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/kth-largest-element-in-a-stream" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#061</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Kth Largest Element in a Stream</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/last-stone-weight" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#062</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Last Stone Weight</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/k-closest-points-to-origin" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#063</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">K Closest Points to Origin</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/kth-largest-element-in-an-array" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#064</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Kth Largest Element in an Array</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/task-scheduler" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#065</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Task Scheduler</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/design-twitter" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#066</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Design Twitter</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/find-median-from-data-stream" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#067</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Find Median from Data Stream</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Backtracking</div>
+          <div class="pattern-meta">9 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Backtracking" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/backtracking.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/subsets" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#068</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Subsets</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/combination-sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#069</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Combination Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/combination-sum-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#070</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Combination Sum II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/permutations" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#071</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Permutations</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/subsets-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#072</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Subsets II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/word-search" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#073</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Word Search</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/palindrome-partitioning" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#074</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Palindrome Partitioning</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#075</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Letter Combinations of a Phone Number</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/n-queens" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#076</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">N-Queens</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Tries</div>
+          <div class="pattern-meta">3 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Trie" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/implement-trie-prefix-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#077</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Implement Trie</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/design-add-and-search-words-data-structure" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#078</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Design Add and Search Words Data Structure</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/word-search-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#079</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Word Search II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Graphs</div>
+          <div class="pattern-meta">13 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Graphs" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/graphs.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/number-of-islands" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#080</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Number of Islands</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/max-area-of-island" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#081</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Max Area of Island</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/clone-graph" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#082</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Clone Graph</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/walls-and-gates" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#083</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Walls and Gates</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/rotting-oranges" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#084</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Rotting Oranges</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/pacific-atlantic-water-flow" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#085</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Pacific Atlantic Water Flow</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/surrounded-regions" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#086</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Surrounded Regions</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/course-schedule" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#087</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Course Schedule</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/course-schedule-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#088</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Course Schedule II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/graph-valid-tree" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#089</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Graph Valid Tree</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#090</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Number of Connected Components in an Undirected Graph</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/redundant-connection" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#091</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Redundant Connection</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/word-ladder" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#092</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Word Ladder</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Advanced Graphs</div>
+          <div class="pattern-meta">6 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Advanced%20Graphs" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/network-delay-time" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#093</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Network Delay Time</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/reconstruct-itinerary" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#094</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Reconstruct Itinerary</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/min-cost-to-connect-all-points" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#095</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Min Cost to Connect All Points</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/swim-in-rising-water" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#096</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Swim in Rising Water</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/alien-dictionary" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#097</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Alien Dictionary</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/cheapest-flights-within-k-stops" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#098</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Cheapest Flights Within K Stops</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">1-D Dynamic Programming</div>
+          <div class="pattern-meta">12 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Dynamic%20Programming" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/climbing-stairs" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#099</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Climbing Stairs</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/min-cost-climbing-stairs" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#100</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Min Cost Climbing Stairs</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/house-robber" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#101</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">House Robber</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/house-robber-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#102</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">House Robber II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-palindromic-substring" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#103</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Palindromic Substring</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/palindromic-substrings" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#104</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Palindromic Substrings</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/decode-ways" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#105</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Decode Ways</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/coin-change" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#106</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Coin Change</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/maximum-product-subarray" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#107</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Maximum Product Subarray</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/word-break" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#108</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Word Break</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-increasing-subsequence" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#109</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Increasing Subsequence</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/partition-equal-subset-sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#110</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Partition Equal Subset Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">2-D Dynamic Programming</div>
+          <div class="pattern-meta">11 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Dynamic%20Programming" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/two-dp.html" target="_blank" rel="noreferrer">
+            Written walkthrough
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/unique-paths" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#111</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Unique Paths</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-common-subsequence" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#112</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Longest Common Subsequence</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#113</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Best Time to Buy and Sell Stock with Cooldown</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/coin-change-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#114</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Coin Change II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/target-sum" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#115</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Target Sum</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/interleaving-string" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#116</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Interleaving String</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#117</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Longest Increasing Path in a Matrix</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/distinct-subsequences" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#118</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Distinct Subsequences</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/edit-distance" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#119</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Edit Distance</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/burst-balloons" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#120</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Burst Balloons</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/regular-expression-matching" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#121</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Regular Expression Matching</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Greedy</div>
+          <div class="pattern-meta">8 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Greedy" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/maximum-subarray" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#122</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Maximum Subarray</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/jump-game" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#123</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Jump Game</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/jump-game-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#124</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Jump Game II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/gas-station" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#125</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Gas Station</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/hand-of-straights" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#126</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Hand of Straights</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/merge-triplets-to-form-target-triplet" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#127</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Merge Triplets to Form Target Triplet</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/partition-labels" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#128</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Partition Labels</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/valid-parenthesis-string" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#129</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Valid Parenthesis String</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Intervals</div>
+          <div class="pattern-meta">6 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Intervals" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/insert-interval" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#130</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Insert Interval</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/merge-intervals" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#131</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Merge Intervals</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/non-overlapping-intervals" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#132</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Non-Overlapping Intervals</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/meeting-rooms" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#133</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Meeting Rooms</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/meeting-rooms-ii" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#134</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Meeting Rooms II</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/minimum-interval-to-include-each-query" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#135</span>
+        <span class="difficulty hard">Hard</span>
+      </div>
+      <div class="problem-title">Minimum Interval to Include Each Query</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Math &amp; Geometry</div>
+          <div class="pattern-meta">8 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Math%20and%20Geometry" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/rotate-image" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#136</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Rotate Image</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/spiral-matrix" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#137</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Spiral Matrix</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/set-matrix-zeroes" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#138</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Set Matrix Zeroes</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/happy-number" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#139</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Happy Number</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/plus-one" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#140</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Plus One</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/powx-n" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#141</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Pow(x, n)</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/multiply-strings" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#142</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Multiply Strings</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/detect-squares" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#143</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Detect Squares</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    <details class="pattern-card" open>
+      <summary>
+        <div>
+          <div class="pattern-title">Bit Manipulation</div>
+          <div class="pattern-meta">7 problems</div>
+        </div>
+        <div class="summary-pill">Core pattern block</div>
+      </summary>
+      <div class="pattern-resources">
+        <span class="resource-kicker">Learn first</span>
+        <div class="resource-links">
+          <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Bit%20Manipulation" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
+          <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
+            NeetCode writeup index
+          </a>
+        </div>
+      </div>
+      <div class="pattern-grid">
+        
+    <a class="problem-card" href="https://leetcode.com/problems/single-number" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#144</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Single Number</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/number-of-1-bits" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#145</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Number of 1 Bits</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/counting-bits" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#146</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Counting Bits</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/reverse-bits" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#147</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Reverse Bits</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/missing-number" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#148</span>
+        <span class="difficulty easy">Easy</span>
+      </div>
+      <div class="problem-title">Missing Number</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/sum-of-two-integers" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#149</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Sum of Two Integers</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+    <a class="problem-card" href="https://leetcode.com/problems/reverse-integer" target="_blank" rel="noreferrer">
+      <div class="problem-topline">
+        <span class="problem-number">#150</span>
+        <span class="difficulty medium">Medium</span>
+      </div>
+      <div class="problem-title">Reverse Integer</div>
+      <div class="problem-footer">Open LeetCode problem</div>
+    </a>
+  
+      </div>
+    </details>
+  
+    </section>
+
+    <section class="footer">
+      <p>
+        Source list used for the core set:
+        <a href="https://neetcode.io/practice/practice/neetcode150" target="_blank" rel="noreferrer">NeetCode 150 practice page</a>
+        and the
+        <a href="https://gist.github.com/mayiwrite/c77a64f52a634c860732e96e5d8ca7e9" target="_blank" rel="noreferrer">NeetCode 150 markdown list</a>.
+        All problem links in this page point to LeetCode.
+      </p>
+      <p>
+        If you want a companion version, I can also turn this into a Codewars-first tracker by pattern after you try the LeetCode core set.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
