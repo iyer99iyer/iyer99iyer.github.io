@@ -294,11 +294,17 @@
 
     .pattern-resources {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
       padding: 16px 18px 0;
       flex-wrap: wrap;
+    }
+
+    .resource-heading {
+      display: grid;
+      gap: 6px;
+      min-width: 220px;
     }
 
     .resource-kicker {
@@ -307,6 +313,13 @@
       font-weight: 900;
       letter-spacing: 0.09em;
       text-transform: uppercase;
+    }
+
+    .resource-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      max-width: 420px;
     }
 
     .resource-links {
@@ -337,6 +350,10 @@
       color: #fff;
       background: linear-gradient(135deg, #ff7a18, #ff3d77);
       border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .resource-link.video.alt {
+      background: linear-gradient(135deg, #2563eb, #8b5cf6);
     }
 
     .resource-link.reference {
@@ -473,6 +490,10 @@
       .pattern-resources {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .resource-heading {
+        min-width: 0;
       }
 
       .week-total {
@@ -644,10 +665,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Arrays%20and%20Hashing" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Arrays%20%26%20Hashing%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/array.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -749,10 +776,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Two%20Pointers" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Two%20Pointers%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/two-pointers.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -818,10 +851,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Sliding%20Window" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Sliding%20Window%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/sliding-window.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -896,10 +935,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Stack" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Stack%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -983,10 +1028,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Binary%20Search" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Binary%20Search%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -1070,10 +1121,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Linked%20List" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Linked%20List%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/list.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -1193,10 +1250,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Trees" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Trees%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/trees.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -1352,10 +1415,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Heap%20Priority%20Queue" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Heap%20%2F%20Priority%20Queue%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -1439,10 +1508,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Backtracking" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Backtracking%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/backtracking.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -1544,10 +1619,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Trie" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Tries%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -1595,10 +1676,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Graphs" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Graphs%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/graphs.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -1736,10 +1823,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Advanced%20Graphs" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Advanced%20Graphs%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -1814,10 +1907,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Dynamic%20Programming" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=1-D%20Dynamic%20Programming%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -1946,10 +2045,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Dynamic%20Programming" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=2-D%20Dynamic%20Programming%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/html/topics/two-dp.html" target="_blank" rel="noreferrer">
             Written walkthrough
@@ -2069,10 +2174,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Greedy" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Greedy%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -2165,10 +2276,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Intervals" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Intervals%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -2243,10 +2360,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Math%20and%20Geometry" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Math%20%26%20Geometry%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index
@@ -2339,10 +2462,16 @@
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="https://www.youtube.com/results?search_query=NeetCode%20Bit%20Manipulation" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="https://www.youtube.com/results?search_query=Bit%20Manipulation%20interview%20tutorial" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="https://tryyang2001.github.io/Neetcode-150-Writeups/" target="_blank" rel="noreferrer">
             NeetCode writeup index

@@ -201,10 +201,12 @@ function youtubeSearchUrl(query) {
 function getPatternResources(title) {
   const entry = patternResources[title] ?? {
     youtube: `NeetCode ${title}`,
+    youtubeAlt: `${title} interview tutorial`,
     reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
   };
   return {
     youtube: youtubeSearchUrl(entry.youtube),
+    youtubeAlt: youtubeSearchUrl(entry.youtubeAlt ?? `${title} interview tutorial`),
     reference: entry.reference,
   };
 }
@@ -238,10 +240,16 @@ function renderSection(section, startNumber) {
         <div class="summary-pill">Core pattern block</div>
       </summary>
       <div class="pattern-resources">
-        <span class="resource-kicker">Learn first</span>
+        <div class="resource-heading">
+          <span class="resource-kicker">Watch first</span>
+          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
+        </div>
         <div class="resource-links">
           <a class="resource-link video" href="${escapeHtml(resources.youtube)}" target="_blank" rel="noreferrer">
-            Watch on YouTube
+            Primary YouTube lesson
+          </a>
+          <a class="resource-link video alt" href="${escapeHtml(resources.youtubeAlt)}" target="_blank" rel="noreferrer">
+            Backup YouTube lesson
           </a>
           <a class="resource-link reference" href="${escapeHtml(resources.reference.url)}" target="_blank" rel="noreferrer">
             ${escapeHtml(resources.reference.label)}
@@ -602,11 +610,17 @@ async function main() {
 
     .pattern-resources {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
       padding: 16px 18px 0;
       flex-wrap: wrap;
+    }
+
+    .resource-heading {
+      display: grid;
+      gap: 6px;
+      min-width: 220px;
     }
 
     .resource-kicker {
@@ -615,6 +629,13 @@ async function main() {
       font-weight: 900;
       letter-spacing: 0.09em;
       text-transform: uppercase;
+    }
+
+    .resource-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      max-width: 420px;
     }
 
     .resource-links {
@@ -645,6 +666,10 @@ async function main() {
       color: #fff;
       background: linear-gradient(135deg, #ff7a18, #ff3d77);
       border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .resource-link.video.alt {
+      background: linear-gradient(135deg, #2563eb, #8b5cf6);
     }
 
     .resource-link.reference {
@@ -781,6 +806,10 @@ async function main() {
       .pattern-resources {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .resource-heading {
+        min-width: 0;
       }
 
       .week-total {
