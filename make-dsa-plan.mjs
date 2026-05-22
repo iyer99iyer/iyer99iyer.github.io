@@ -1,8 +1,11 @@
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 const SOURCE_URL =
   'https://gist.githubusercontent.com/mayiwrite/c77a64f52a634c860732e96e5d8ca7e9/raw/d473376a93d9e0743626c7e5f743904f24bc225d/NeetCode150.md';
+const VIDEO_SOURCE_URL =
+  'https://raw.githubusercontent.com/zoekurtzer/Leetcode-Study/main/README.md';
 const OUTPUT_FILE = 'dsa-study-plan.html';
+const VIDEO_CACHE_FILE = 'youtube-solution-cache.json';
 const NEETCODE_INDEX_URL =
   'https://tryyang2001.github.io/Neetcode-150-Writeups/';
 const NEETCODE_2D_DP_URL =
@@ -216,17 +219,66 @@ function codewarsSearchUrl(problemTitle) {
   return `https://www.codewars.com/kata/search/?q=${encodeURIComponent(problemTitle)}`;
 }
 
-function getPatternResources(title) {
-  const entry = patternResources[title] ?? {
-    youtube: 'https://www.youtube.com/watch?v=DjYZk8nrXVY',
-    youtubeAlt: 'https://www.youtube.com/watch?v=LAnEeffb5zI',
-    reference: { label: 'NeetCode writeup index', url: NEETCODE_INDEX_URL },
-  };
-  return {
-    youtube: entry.youtube,
-    youtubeAlt: entry.youtubeAlt,
-    reference: entry.reference,
-  };
+function leetcodeSlug(url) {
+  return url.match(/leetcode\.com\/problems\/([^/]+)/)?.[1] ?? '';
+}
+
+function normalizeTitle(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+async function readVideoCache() {
+  try {
+    return JSON.parse(await readFile(VIDEO_CACHE_FILE, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+async function readVideoSource() {
+  try {
+    return await readFile('neetcode-video-source.md', 'utf8');
+  } catch {
+    const response = await fetch(VIDEO_SOURCE_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch video source: ${response.status}`);
+    }
+    return response.text();
+  }
+}
+
+function parseVideoSource(markdown) {
+  const bySlug = new Map();
+  const byTitle = new Map();
+  const rowRegex =
+    /^\|\s+\*\*[^|]+\|\s+\*\*\[([^\]]+)\]\([^)]+\).*?\|\s+\[Link\]\((https:\/\/leetcode\.com\/problems\/[^)]+)\)\s+\|\s+(?:Easy|Medium|Hard)\s+\|\s+\[YouTube\]\((https:\/\/www\.youtube\.com\/watch\?v=[^)]+)\)/gm;
+
+  for (const match of markdown.matchAll(rowRegex)) {
+    const [, title, leetcodeUrl, youtubeUrl] = match;
+    bySlug.set(leetcodeSlug(leetcodeUrl), youtubeUrl);
+    byTitle.set(normalizeTitle(title), youtubeUrl);
+  }
+
+  return { bySlug, byTitle };
+}
+
+async function addSolutionVideos(sections) {
+  const cache = await readVideoCache();
+  const source = parseVideoSource(await readVideoSource());
+  const problems = sections.flatMap((section) => section.problems);
+
+  for (const problem of problems) {
+    const slugMatch = source.bySlug.get(leetcodeSlug(problem.url));
+    const titleMatch = source.byTitle.get(normalizeTitle(problem.title));
+    const cachedMatch = cache[problem.title]?.includes('youtube.com/watch') ? cache[problem.title] : null;
+    problem.youtubeUrl = slugMatch ?? titleMatch ?? cachedMatch;
+    if (!problem.youtubeUrl) {
+      throw new Error(`Missing direct YouTube solution for ${problem.title}`);
+    }
+    cache[problem.title] = problem.youtubeUrl;
+  }
+
+  await writeFile(VIDEO_CACHE_FILE, `${JSON.stringify(cache, null, 2)}\n`, 'utf8');
 }
 
 function renderProblemCard(problem, number) {
@@ -242,13 +294,13 @@ function renderProblemCard(problem, number) {
       <div class="problem-actions">
         <a class="problem-link leetcode" href="${escapeHtml(problem.url)}" target="_blank" rel="noreferrer">LeetCode</a>
         <a class="problem-link codewars" href="${escapeHtml(codewarsUrl)}" target="_blank" rel="noreferrer">Codewars</a>
+        <a class="problem-link youtube" href="${escapeHtml(problem.youtubeUrl)}" target="_blank" rel="noreferrer">YouTube Solution</a>
       </div>
     </article>
   `;
 }
 
 function renderSection(section, startNumber) {
-  const resources = getPatternResources(section.title);
   const cards = section.problems
     .map((problem, index) => renderProblemCard(problem, startNumber + index))
     .join('');
@@ -261,23 +313,6 @@ function renderSection(section, startNumber) {
         </div>
         <div class="summary-pill">Core pattern block</div>
       </summary>
-      <div class="pattern-resources">
-        <div class="resource-heading">
-          <span class="resource-kicker">Watch first</span>
-          <div class="resource-note">Start with a short video lesson, then move into the linked problems.</div>
-        </div>
-        <div class="resource-links">
-          <a class="resource-link video" href="${escapeHtml(resources.youtube)}" target="_blank" rel="noreferrer">
-            Primary YouTube lesson
-          </a>
-          <a class="resource-link video alt" href="${escapeHtml(resources.youtubeAlt)}" target="_blank" rel="noreferrer">
-            Backup YouTube lesson
-          </a>
-          <a class="resource-link reference" href="${escapeHtml(resources.reference.url)}" target="_blank" rel="noreferrer">
-            ${escapeHtml(resources.reference.label)}
-          </a>
-        </div>
-      </div>
       <div class="pattern-grid">
         ${cards}
       </div>
@@ -312,6 +347,7 @@ async function main() {
   });
 
   const sections = parseSections(markdown);
+  await addSolutionVideos(sections);
   const sectionCounts = new Map(sections.map((section) => [section.title, section.problems.length]));
   const totalUnique = sections.reduce((sum, section) => sum + section.problems.length, 0);
   const totalAttempts = 240;
@@ -744,7 +780,7 @@ async function main() {
 
     .problem-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       margin-top: auto;
     }
@@ -777,6 +813,18 @@ async function main() {
       color: #ffffff;
       background: linear-gradient(135deg, #dc2626, #f97316);
       box-shadow: 0 8px 22px rgba(220, 38, 38, 0.14);
+    }
+
+    .problem-link.youtube {
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff0033, #b91c1c);
+      box-shadow: 0 8px 22px rgba(185, 28, 28, 0.14);
+    }
+
+    @media (max-width: 520px) {
+      .problem-actions {
+        grid-template-columns: 1fr;
+      }
     }
 
     .difficulty {
